@@ -1,0 +1,31 @@
+.item {
+    width: 100%;
+    padding: 3px 15px;
+    background-color: var(--white);
+    display: flex;
+    align-items: center;
+    border-radius: 6px;
+    gap: 30px;
+
+    &__img {
+        margin-left: -10px;
+        width: 62px;
+        height: 46px;
+        display: block;
+        object-fit: contain;
+    }
+
+    // &__name {
+    //     font-size: 12px;
+    //     font-weight: 500;
+    //     line-height: 16px;
+    // }
+
+    &__link{
+        color: var(--primary-color);
+    }
+
+    &__btn{
+        margin-left: auto;
+    }
+}

@@ -1,17 +1,38 @@
 @use "/src/scss/colors";
-
-@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap");
-
-
-html {
-  font-size: 0.8rem;
-}
+@import url('../public/fonts/fonts.css');
 
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: "Inter", sans-serif;
+  font-family: 'SF Pro Display';
   text-decoration: none;
 }
 
+body {
+  padding: 0;
+  margin: 0;
+  background: var(--body-color);
+  color: var(--black);
+}
+
+a {
+  text-decoration: none;
+  cursor: pointer;
+}
+
+button {
+  border: none;
+  cursor: pointer;
+  background-color: transparent;
+}
+
+input {
+  border: none;
+  outline: none;
+}
+
+input[type="checkbox"] {
+  cursor: pointer;
+  accent-color: var(--black);
+}

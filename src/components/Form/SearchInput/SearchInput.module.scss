@@ -1,0 +1,22 @@
+.label{
+    position: relative;
+
+    & > svg{
+        position: absolute;
+        top: 50%;
+        left: 8px;
+        transform: translate(0, -50%);
+    }
+}
+
+.input{
+    padding: 8px;
+    border-radius: 30px;
+    font-size: 14px;
+    border: 1px solid var(--light-gray);
+    padding-left: 32px;
+
+    &:focus{
+        border-color: var(--black);
+    }
+}

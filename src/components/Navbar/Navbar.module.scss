@@ -1,0 +1,26 @@
+
+.nav{
+    padding: 17px 0;
+    background-color: var(--white);
+
+    &__container{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding-left: 24px;
+    }
+
+    &__group{
+        max-width: 1130px;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        & > span{
+            font-family: 'SF Pro Display';
+            font-size: 26px;
+            font-weight: 500;
+        }
+    }
+}

@@ -3,22 +3,10 @@ import { resolve } from 'path'
 import react from '@vitejs/plugin-react'
 
 export default defineConfig({
-  plugins: [react()],
+  plugins: [react({include: "**/*.jsx"})],
   publicDir: 'public',
   build: {
     outDir: 'build'
-  },
-  resolve: {
-    alias: [
-      {
-        find: '@',
-        replacement: resolve(__dirname, 'src')
-      },
-      {
-        find: '@components/',
-        replacement: resolve(__dirname, 'src/components')
-      }
-    ]
   },
   server: {
     host: true
