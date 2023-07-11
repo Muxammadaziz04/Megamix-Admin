@@ -5,7 +5,7 @@ const Navbar = () => {
     return (
         <div className={cls.navbar}>
             <div></div>
-            <WhiteButton>+ Добавить слайдер</WhiteButton>
+            <WhiteButton>+ Добавить продукт</WhiteButton>
         </div>
     );
 }

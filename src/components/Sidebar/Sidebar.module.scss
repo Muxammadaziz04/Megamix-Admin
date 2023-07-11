@@ -8,19 +8,40 @@
     flex-direction: column;
     gap: 10px;
 
-    & > a > button {
+    & > a > div {
         display: flex;
-        align-items: center;
-        gap: 8px;
-        padding: 12px 16px;
-        font-size: 16px;
-        border-radius: 6px;
-        letter-spacing: 0.7px;
-        font-weight: 300;
-        width: 100%;
+        flex-direction: column;
 
-        & path{
-            stroke: var(--black);
+        & > button {
+            position: relative;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 12px 16px;
+            font-size: 16px;
+            border-radius: 6px;
+            letter-spacing: 0.7px;
+            font-weight: 300;
+            width: 100%;
+    
+            & path{
+                stroke: var(--black);
+            }
+        }
+
+        & > ul {
+            height: 0;
+            padding-left: 51px;
+            overflow-y: hidden;
+            transition: all 0.3s;
+            display: flex;
+            flex-direction: column;
+
+            & li{
+                font-style: 12px;
+                padding: 5px 0!important;
+                color: var(--black);
+            }
         }
     }
 }
@@ -32,4 +53,14 @@
     & path{
         stroke: var(--white)!important;
     }
+}
+
+.active__link{
+    color: #F7A707!important;
+}
+
+.open__children{
+    height: auto!important;
+    padding: 5px 0 !important;
+    padding-left: 51px!important;
 }

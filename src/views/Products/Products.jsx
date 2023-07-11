@@ -1,6 +1,6 @@
 import React from 'react';
 import { BodyWrapper } from '../../components/BodyWrapper';
-import { Item } from '../../components/Item';
+import { ProductItem } from '../../components/Items/ProductItem';
 import { Navbar } from './components/Navbar';
 
 const Products = () => {
@@ -8,7 +8,7 @@ const Products = () => {
         <BodyWrapper 
             navbar={<Navbar />}
             body={<div>
-                <Item />
+                <ProductItem />
             </div>}
         />
     );
