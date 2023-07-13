@@ -1,5 +1,5 @@
 .sidebar {
-    padding: 38px 21px 38px 16px;
+    padding: 16px;
     border-radius: 12px;
     background-color: var(--white);
     max-width: 210px;
@@ -23,6 +23,11 @@
             letter-spacing: 0.7px;
             font-weight: 300;
             width: 100%;
+            transition: all 0.3s;
+
+            &:hover{
+                background-color: rgba(43, 42, 41, 0.10);
+            }
     
             & path{
                 stroke: var(--black);
@@ -31,7 +36,7 @@
 
         & > ul {
             height: 0;
-            padding-left: 51px;
+            padding-left: 51px !important;
             overflow-y: hidden;
             transition: all 0.3s;
             display: flex;
@@ -39,15 +44,16 @@
 
             & li{
                 font-style: 12px;
-                padding: 5px 0!important;
+                padding: 0;
                 color: var(--black);
+                transition: all 0.3s;
             }
         }
     }
 }
 
 .active__btn{
-    background-color: var(--black);
+    background-color: var(--black)!important;
     color: var(--white);
 
     & path{
@@ -62,5 +68,8 @@
 .open__children{
     height: auto!important;
     padding: 5px 0 !important;
-    padding-left: 51px!important;
+
+    & li{
+        padding: 5px 0!important;
+    }
 }
