@@ -1,8 +1,8 @@
 import cls from './WhiteButton.module.scss'
 
-const WhiteButton = ({children}) => {
+const WhiteButton = ({ children, ...other }) => {
     return (
-        <button className={cls.btn}>
+        <button className={cls.btn} {...other}>
             {children}
         </button>
     );

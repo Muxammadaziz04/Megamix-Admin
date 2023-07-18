@@ -67,3 +67,19 @@ export function DotsIcon() {
         </svg>
     )
 }
+
+export function PlayIcon() {
+    return (
+        <svg xmlns="http://www.w3.org/2000/svg" width="11" height="14" viewBox="0 0 11 14" fill="none">
+            <path d="M11 7L0.5 13.0622L0.500001 0.937822L11 7Z" fill="#2D8DFF" />
+        </svg>
+    )
+}
+
+export function LeftArrowIcon() {
+    return (
+        <svg xmlns="http://www.w3.org/2000/svg" width="7" height="11" viewBox="0 0 7 11" fill="none">
+            <path d="M6 0.5L1 5.5L6 10.5" stroke="#2B2A29" strokeLinecap="round" strokeLinejoin="round" />
+        </svg>
+    )
+}

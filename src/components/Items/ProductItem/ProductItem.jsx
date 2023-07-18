@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
-import { DotsIcon } from '../../icons';
+import { DotsIcon, PlayIcon } from '../../icons';
 import cls from './ProductItem.module.scss'
 
 const ProductItem = () => {
@@ -26,15 +26,10 @@ const ProductItem = () => {
                 alt=""
             />
             <p className={cls.item__name}>Клей для гранита, мрамора и травертина</p>
-            <a
-                className={cls.item__link}
-                href="https://megamix.uz"
-                target='_blank'
-            >
-                https://megamix.uz/faq
-            </a>
-            <span className={cls.item__date}>13.03.2021</span>
-            <span className={cls.item__date}>Сухие смеси</span>
+            <p className={cls.item__shortdesc}>Клей для гранита, мрамора и травертина </p>
+            <p className={cls.item__desc}>Гидроизоляционная сухая смесь...</p>
+            <span className={cls.item__video}><PlayIcon /> Видео</span>
+            <span className={cls.item__date}>25 kg</span>
             <div style={{ position: 'relative', marginLeft: 'auto' }} ref={modalRef}>
                 <button className={cls.item__btn} onClick={() => setIsOpenModal(state => !state)}>
                     <DotsIcon />

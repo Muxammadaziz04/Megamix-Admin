@@ -1,6 +1,7 @@
 import { useSelector } from "react-redux"
 import { Route, Routes } from "react-router-dom"
 import { MainLayout } from "../layouts/MainLayout"
+import AddProduct from "../views/AddProduct"
 import { Products } from "../views/Products"
 
 const Router = () => {
@@ -17,6 +18,7 @@ const Router = () => {
       <Routes>
         <Route path="/" element={<MainLayout />}>
           <Route path="products" element={<Products />} />
+          <Route path="products/add" element={<AddProduct />} />
           <Route path="press-reliz" element={<></>} />
           <Route path="press-reliz/news" element={<></>} />
           <Route path="press-reliz/journal" element={<></>} />

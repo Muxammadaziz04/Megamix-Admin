@@ -1,14 +1,20 @@
 import { defineConfig } from 'vite'
-import { resolve } from 'path'
 import react from '@vitejs/plugin-react'
 
 export default defineConfig({
-  plugins: [react({include: "**/*.jsx"})],
+  plugins: [react()],
   publicDir: 'public',
   build: {
-    outDir: 'build'
+    outDir: 'build',
+  },
+  resolve: {
+    extensions: ['.js', '.jsx', '.json', '.scss', '.css'],
+  },
+  define: {
+    'process.env': {...process.env}
   },
   server: {
-    host: true
-  }
+    host: true,
+    port: 3000
+  },
 })

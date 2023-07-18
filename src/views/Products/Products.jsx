@@ -1,16 +1,11 @@
 import React from 'react';
 import { BodyWrapper } from '../../components/BodyWrapper';
-import { ProductItem } from '../../components/Items/ProductItem';
+import Body from './components/Body';
 import { Navbar } from './components/Navbar';
 
 const Products = () => {
     return (
-        <BodyWrapper 
-            navbar={<Navbar />}
-            body={<div>
-                <ProductItem />
-            </div>}
-        />
+        <BodyWrapper navbar={<Navbar />} body={<Body />} />
     );
 }
 

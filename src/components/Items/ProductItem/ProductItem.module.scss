@@ -5,7 +5,7 @@
     display: flex;
     align-items: center;
     border-radius: 6px;
-    gap: 30px;
+    gap: 20px;
 
     &__img {
         margin-left: -10px;
@@ -16,41 +16,56 @@
     }
 
     &__name {
-        max-width: 302px;
+        max-width: 230px;
         width: 100%;
-    }
-
-    &__link{
-        max-width: 226px;
-        width: 100%;
-        color: var(--primary-color);
         overflow: hidden;
+        white-space: nowrap;
         text-overflow: ellipsis;
     }
 
-    &__date{
-        max-width: 100px;
+    &__shortdesc {
+        max-width: 306px;
         width: 100%;
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
     }
 
-    &__category{
+    &__desc {
+        max-width: 232px;
+        width: 100%;
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+    }
+
+    &__video {
+        display: flex;
+        align-items: center;
+        gap: 3px;
+        font-size: 14px;
+        color: var(--primary-color);
+        line-height: 17px;
+    }
+
+    &__category {
         max-width: 200px;
         width: 100%;
     }
 
-    &__btn{
+    &__btn {
         border-radius: 50%;
         display: flex;
         align-items: center;
         justify-content: center;
         transition: all 0.3s;
 
-        &:hover{
+        &:hover {
             background-color: var(--body-color);
         }
     }
 
-    &__modal{
+    &__modal {
         position: absolute;
         bottom: 0;
         left: 0;
@@ -60,7 +75,7 @@
         background: var(--white);
         box-shadow: 0px 4px 20px 0px rgba(0, 0, 0, 0.10);
 
-        & > button{
+        &>button {
             text-align: start;
             width: 100%;
             padding: 7px 20px 7px 10px;
@@ -68,7 +83,7 @@
             font-size: 12px;
             transition: all 0.3s;
 
-            &:hover{
+            &:hover {
                 background-color: var(--light-yellow);
             }
         }
