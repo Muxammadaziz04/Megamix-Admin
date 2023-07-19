@@ -1,0 +1,27 @@
+
+.body{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+
+    &__lang{
+        width: 100%;
+
+        &__child{
+            display: flex;
+            align-items: center;
+            gap: 3px;
+        }
+    }
+
+    &__name, &__media{
+        width: calc((100% - 12px) / 2);
+    }
+
+    &__media{
+        &__child{
+            display: flex;
+            gap: 5px;
+        }
+    }
+}
