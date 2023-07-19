@@ -79,7 +79,9 @@ export const routes = [
 export const routesName = {
     '': 'Главная',
     'products': 'Продукты',
+    'products/add': 'Добавить продукт',
     'press-reliz/news': 'Новости',
+    'press-reliz/news/add': 'Добавить новости',
     'press-reliz/journal': 'Журнал',
     'press-reliz/vacancy': 'Вакансии',
     'press-reliz/foto': 'Фото галерея',

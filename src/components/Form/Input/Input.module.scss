@@ -3,3 +3,10 @@
     border-radius: 2px;
     background: #F5F5F5;
 }
+
+.label{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    height: auto;
+}

@@ -14,7 +14,7 @@ const Navbar = ({ useForm = {} }) => {
     return (
         <div className={cls.navbar}>
             <div>
-                <button onClick={() => navigate('/products')}><LeftArrowIcon /> Продукты</button>
+                <button onClick={() => navigate('/press-reliz/news')}><LeftArrowIcon /> Новости</button>
             </div>
             <BlackButton onClick={handleSubmit(handleClick)}>Опубликовать</BlackButton>
         </div>

@@ -2,10 +2,12 @@ import cls from './GreyButton.module.scss'
 
 const GreyButton = ({
     children, 
-    className
+    className = '',
+    active = false,
+    ...other
 }) => {
     return (
-        <button className={cls.btn + ' ' + className}>
+        <button className={`${cls.btn} ${cls.className} ${active ? cls.active : ''}`} {...other}>
             {children}
         </button>
     );

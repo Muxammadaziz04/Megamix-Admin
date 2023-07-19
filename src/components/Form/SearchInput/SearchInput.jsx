@@ -4,7 +4,8 @@ import cls from './SearchInput.module.scss'
 const SearchInput = ({
     placeholder = '',
     onChange = () => { },
-    value
+    value,
+    register = {}
 }) => {
     return (
         <label className={cls.label}>
@@ -15,6 +16,7 @@ const SearchInput = ({
                 placeholder={placeholder}
                 onChange={onChange}
                 {...(value && { value })}
+                {...register}
             />
         </label>
     );

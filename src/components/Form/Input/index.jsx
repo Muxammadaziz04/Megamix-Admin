@@ -4,15 +4,21 @@ const Input = ({
     type = 'text',
     placeholder = '',
     className = '',
+    label = '',
+    register = {},
     ...other
 }) => {
     return (
-        <input 
-            className={cls.input + ' ' + className}
-            type={type}
-            placeholder={placeholder}
-            {...other}
-        />
+        <label className={cls.label}>
+            {label}
+            <input
+                className={cls.input + ' ' + className}
+                type={type}
+                placeholder={placeholder}
+                {...register}
+                {...other}
+            />
+        </label>
     );
 }
 

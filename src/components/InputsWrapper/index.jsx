@@ -3,7 +3,8 @@ import cls from './InputsWrapper.module.scss'
 const InputsWrapper = ({
     children,
     title = '',
-    className
+    className = '',
+    tabs = []
 }) => {
     return (
         <div className={cls.wrapper + ' ' + className}>

@@ -10,6 +10,7 @@
     }
 
     & > div:nth-child(2){
+        flex-grow: 1;
         padding: 16px 13px;
         width: 100%;
     }

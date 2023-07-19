@@ -1,0 +1,23 @@
+
+.navbar{
+    width: 100%;
+    display: flex;
+    align-items: stretch;
+    gap: 16px;
+
+    & > div{
+        flex-grow: 1;
+        border-radius: 6px;
+        background-color: var(--white);
+        display: flex;
+        align-items: center;
+        padding: 16px 17px;
+
+        & > button{
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 14px;
+        }
+    }
+}

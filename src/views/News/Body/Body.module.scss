@@ -1,0 +1,33 @@
+
+
+.body{
+    display: flex;
+    flex-direction: column;
+    max-height: 100%;
+    overflow-y: hidden;
+
+    &__tabs{
+        display: flex;
+        align-items: center;
+        gap: 30px;
+        padding: 10px 15px;
+        opacity: 0.6;
+
+        &__img{
+            max-width: 157px;
+            width: 100%;
+        }
+    }
+
+    & > div:nth-child(2){
+        flex-grow: 1;
+        overflow-y: auto;
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+
+        &::-webkit-scrollbar{
+            width: 5px;
+        }
+    }
+}
