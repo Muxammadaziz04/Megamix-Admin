@@ -6,6 +6,9 @@ const FileUpload = ({
     children,
     className = '',
     onChange = () => { },
+    register = {},
+    error = '',
+    value = '',
     ...other
 }) => {
     const [file, setFile] = useState()
@@ -16,21 +19,28 @@ const FileUpload = ({
         }
     }, [file])
 
+    useEffect(() => setFile(value), [value])
+
     return !file ? (
-        <label className={cls.label + ' ' + className}>
-            {children}
-            <input
-                type="file"
-                onChange={(e) => setFile(e.target.files?.[0])}
-                {...other}
-            />
-        </label>
+        <div style={{ display: 'flex', flexDirection: 'column', gap: '5px' }}>
+            <label className={cls.label + ' ' + className}>
+                {children}
+                <input
+                    type="file"
+                    {...register}
+                    onChange={(e) => setFile(e.target.files?.[0])}
+                    {...other}
+                />
+            </label>
+            {error && <span>{error}</span>}
+        </div>
     ) : (
         <div className={cls.file}>
+            {typeof file === 'string' && <img src={file} />}
             {file.type?.split('/')?.[0] === 'image' && <img src={URL.createObjectURL(file)} />}
             {file.type?.split('/')?.[0] === 'video' && <video src={URL.createObjectURL(file)} />}
             <div className={cls.file__info}>
-                <span className={cls.file__info__name}>{file?.name}</span>
+                <span className={cls.file__info__name}>{file?.name || 'Фото'}</span>
                 <span className={cls.file__info__edit} onClick={() => setFile(null)}>Изменить</span>
             </div>
         </div>

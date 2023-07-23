@@ -11,8 +11,8 @@ function paramsToObject(entries) {
 const useSearchParams = () => {
     const [params, setSearchParams] = useParams()
 
-    const customSearchParams = (query) => {
-        setSearchParams({...paramsToObject(params.entries()), ...query})
+    const customSearchParams = (query, queryParams) => {
+        setSearchParams({ ...paramsToObject(params.entries()), ...query }, { replace: true, ...queryParams })
     }
 
     return [params, customSearchParams]

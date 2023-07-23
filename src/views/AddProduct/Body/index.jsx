@@ -8,8 +8,8 @@ import LanguagesTab from '../../../components/LanguagesTab';
 import useSearchParams from '../../../hooks/useSearchParams';
 import cls from './Body.module.scss'
 
-const Body = ({useForm = {}}) => {
-    const {register, watch, setValue} = useForm
+const Body = ({ useForm = {} }) => {
+    const { register, clearErrors, watch, setValue, formState: { errors } } = useForm
     const [params, setSearchParams] = useSearchParams()
     const watchedFiles = watch()
 
@@ -17,7 +17,11 @@ const Body = ({useForm = {}}) => {
         if (!params.get('area')) {
             setSearchParams({ area: 'description' })
         }
-    }, [params.get('area')])
+
+        if (!params.get('lang')) {
+            setSearchParams({ lang: 'ru' })
+        }
+    }, [params.get('area'), params.get('lang')])
 
     return (
         <div className={cls.body}>
@@ -25,75 +29,141 @@ const Body = ({useForm = {}}) => {
             <InputsWrapper className={cls.body__name} title='Название продукта'>
                 <Input
                     placeholder='Название продукта'
-                    register={{ ...register('name', { required: true }) }}
+                    register={{ ...register('title', { required: { value: true, message: 'Название продукта обязательно к заполнению' } }) }}
+                    error={errors?.title?.message || null}
                 />
             </InputsWrapper>
             <InputsWrapper className={cls.body__media} title='Фото и видео'>
                 <div className={cls.body__media__child}>
-                    <FileUpload 
+                    <FileUpload
                         accept='image/png, image/jpg, image/jpeg'
-                        onChange={(file) => setValue('foto', file)}
+                        onChange={(file) => { clearErrors('foto'); setValue('foto', file) }}
+                        error={errors?.foto?.message}
+                        value={watchedFiles?.foto}
                     >
                         Загрузить фото
                     </FileUpload>
-                    <FileUpload 
+                    <FileUpload
                         accept='video/mp4'
-                        onChange={(file) => setValue('video', file)}
+                        // onChange={(file) => setValue('video', file)}
                     >
-                        Загрузить видео инструкция
+                        Загрузить видео инструкцию
                     </FileUpload>
                 </div>
             </InputsWrapper>
-            <div className={cls.body__desc}>
-                <div>
-                    <button 
-                        className={params.get('area') === 'description' ? cls.active__tab : ''} 
-                        onClick={() => setSearchParams({ area: 'description' })}
-                    >
-                        Описание
-                    </button>
-                    <button 
-                        className={params.get('area') === 'technicalSpecifications' ? cls.active__tab : ''} 
-                        onClick={() => setSearchParams({ area: 'technicalSpecifications' })}
-                    >
-                        Технические характеристики
-                    </button>
-                    <button 
-                        className={params.get('area') === 'packaging' ? cls.active__tab : ''} 
-                        onClick={() => setSearchParams({ area: 'packaging' })}
-                    >
-                        Упаковка
-                    </button>
-                </div>
-                <div>
-                    <TextArea 
-                        placeholder='Описание'
-                        value={watchedFiles?.[params.get('lang')]?.[params.get('area')] || ''}
-                        register={{...register(`${params.get('lang')}.${params.get('area')}`)}}
+            <div className={cls.body__shortdesc}>
+                <InputsWrapper title='Короткое описание'>
+                    <Input
+                        value={watchedFiles?.[params.get('lang')]?.shortDescription || ''}
+                        placeholder='Короткое описание продукта'
+                        register={{
+                            ...register(`${params.get('lang')}.shortDescription`, {
+                                required: { value: true, message: 'Краткое описание продукта обязательно к заполнению' }
+                            })
+                        }}
+                        error={errors?.ru?.shortDescription?.message}
                     />
+                </InputsWrapper>
+                <div className={cls.body__desc}>
+                    <div>
+                        <button
+                            className={params.get('area') === 'description' ? cls.active__tab : ''}
+                            onClick={() => setSearchParams({ area: 'description' })}
+                        >
+                            Описание
+                        </button>
+                        <button
+                            className={params.get('area') === 'technicalSpecifications' ? cls.active__tab : ''}
+                            onClick={() => setSearchParams({ area: 'technicalSpecifications' })}
+                        >
+                            Технические характеристики
+                        </button>
+                        <button
+                            className={params.get('area') === 'packaging' ? cls.active__tab : ''}
+                            onClick={() => setSearchParams({ area: 'packaging' })}
+                        >
+                            Упаковка
+                        </button>
+                    </div>
+                    <div>
+                        {params.get('area') === 'description' && (
+                            <TextArea
+                                placeholder='Назначение'
+                                value={watchedFiles?.[params.get('lang')]?.[params.get('area')] || ''}
+                                register={{
+                                    ...register(`${params.get('lang')}.description`, {
+                                        required: { value: true, message: 'Описание продукта обязательно к заполнению' }
+                                    })
+                                }}
+                                error={errors?.ru?.description?.message}
+                            />
+                        )}
+                        {params.get('area') === 'technicalSpecifications' && (
+                            <div className={cls.body__tech}>
+                                <Input
+                                    label='Вес НЕТТО:'
+                                    placeholder='КГ'
+                                    register={{ ...register(`weight`) }}
+                                />
+                                <Input
+                                    label='Прочность на сжатие:'
+                                    placeholder='МПа'
+                                    register={{ ...register(`compressiveStrength`) }}
+                                />
+                                <Input
+                                    label='Перемешивание с водой:'
+                                    placeholder='Литр'
+                                    register={{ ...register(`mixinWithWater`) }}
+                                />
+                                <Input
+                                    label='Температура рабочей среды:'
+                                    placeholder='+5°С/+35°С.'
+                                    register={{ ...register(`workingMediumTemperature`) }}
+                                />
+                                <Input
+                                    value={watchedFiles?.[params.get('lang')]?.technicalSpecifications || ''}
+                                    label='Показания:'
+                                    placeholder='Технические характеристики'
+                                    register={{ ...register(`${params.get('lang')}.technicalSpecifications`) }}
+                                />
+                            </div>
+                        )}
+                        {params.get('area') === 'packaging' && (
+                            <Input
+                                value={watchedFiles?.[params.get('lang')]?.packaging || ''}
+                                label='Упаковка'
+                                placeholder='Упаковка'
+                                register={{ ...register(`${params.get('lang')}.packaging`) }}
+                            />
+                        )}
+                    </div>
                 </div>
             </div>
             <InputsWrapper className={cls.body__calc} title='Калькулятор'>
                 <div className={cls.body__calc__child}>
-                    <Input 
+                    <Input
                         type='number'
-                        label='Толщина слоя' 
-                        placeholder='см' 
+                        label='Толщина слоя'
+                        placeholder='см'
+                        register={{ ...register(`calcLayerWidth`) }}
                     />
-                    <Input 
+                    <Input
                         type='number'
-                        label='Объём' 
-                        placeholder='м²' 
+                        label='Объём'
+                        placeholder='м²'
+                        register={{ ...register(`calcVolume`) }}
                     />
-                    <Input 
+                    <Input
                         type='number'
-                        label='Килограмм' 
-                        placeholder='кг' 
+                        label='Килограмм'
+                        placeholder='кг'
+                        register={{ ...register(`calcWeight`) }}
                     />
-                    <Input 
+                    <Input
                         type='number'
-                        label='Литр' 
-                        placeholder='л' 
+                        label='Литр'
+                        placeholder='Лирт'
+                        register={{ ...register(`calcWaterQuantity`) }}
                     />
                 </div>
             </InputsWrapper>

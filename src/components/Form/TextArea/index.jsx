@@ -3,6 +3,7 @@ import cls from './TextArea.module.scss'
 const TextArea = ({
     className = '',
     register = {},
+    error = '',
     ...other
 }) => {
     return (
@@ -13,6 +14,7 @@ const TextArea = ({
                 {...other}
             >
             </textarea>
+            {error && <span>{error}</span>}
         </label>
     );
 }

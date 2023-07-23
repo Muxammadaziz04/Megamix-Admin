@@ -3,7 +3,7 @@ import { useQueryClient } from "react-query";
 import { useNavigate, useParams } from 'react-router-dom';
 import BlackButton from '../../../components/Buttons/BlackButton';
 import { LeftArrowIcon } from '../../../components/icons';
-import { createProduct } from '../../../services/product';
+import { createProduct, updateProduct } from '../../../services/product';
 import cls from './Navbar.module.scss'
 
 const Navbar = ({ useForm = {} }) => {
@@ -26,7 +26,7 @@ const Navbar = ({ useForm = {} }) => {
 
         toast.promise(new Promise((res, rej) => {
             try {
-                createProduct(fd)
+                updateProduct(params.productId, fd)
                     .then(() => {
                         queryClient.invalidateQueries(['products', params?.categoryId])
                         setTimeout(() => navigate(-1), 1000)
@@ -37,8 +37,8 @@ const Navbar = ({ useForm = {} }) => {
                 rej(error)
             }
         }), {
-            loading: 'Идёт создание продукта...',
-            success: 'Продукт создан',
+            loading: 'Идёт изменение продукта...',
+            success: 'Продукт изменен',
             error: (data) => typeof data === 'string' ? data : 'Что-то пошло не так'
         })
     }
@@ -49,7 +49,7 @@ const Navbar = ({ useForm = {} }) => {
                 <button onClick={() => navigate(-1)}><LeftArrowIcon /> Продукты</button>
                 <Toaster />
             </div>
-            <BlackButton onClick={handleSubmit(handleClick)}>Опубликовать</BlackButton>
+            <BlackButton onClick={handleSubmit(handleClick)}>Изменить</BlackButton>
         </div>
     );
 }

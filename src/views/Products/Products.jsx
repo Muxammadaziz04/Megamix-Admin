@@ -1,7 +1,7 @@
 import React from 'react';
 import { BodyWrapper } from '../../components/BodyWrapper';
-import Body from './components/Body';
-import { Navbar } from './components/Navbar';
+import Body from './Body';
+import { Navbar } from './Navbar';
 
 const Products = () => {
     return (

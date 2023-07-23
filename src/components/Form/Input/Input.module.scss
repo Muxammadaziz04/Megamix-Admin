@@ -9,4 +9,9 @@
     flex-direction: column;
     gap: 10px;
     height: auto;
+
+    & > span{
+        color: red;
+        font-size: 11px;
+    }
 }

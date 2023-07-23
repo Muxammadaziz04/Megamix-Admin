@@ -26,3 +26,5 @@ yarn.lock
 *.sln
 *.sw?
 coverage
+
+.env

@@ -8,7 +8,7 @@
     flex-direction: column;
     gap: 10px;
 
-    & > a > div {
+    & >  div > a {
         display: flex;
         flex-direction: column;
 
@@ -34,20 +34,20 @@
             }
         }
 
-        & > ul {
-            height: 0;
-            padding-left: 51px !important;
-            overflow-y: hidden;
-            transition: all 0.3s;
-            display: flex;
-            flex-direction: column;
+    }
+    & > div > ul {
+        height: 0;
+        padding-left: 51px !important;
+        overflow-y: hidden;
+        transition: all 0.3s;
+        display: flex;
+        flex-direction: column;
 
-            & li{
-                font-style: 12px;
-                padding: 0;
-                color: var(--black);
-                transition: all 0.3s;
-            }
+        & li{
+            font-style: 12px;
+            padding: 0;
+            color: var(--black);
+            transition: all 0.3s;
         }
     }
 }

@@ -1,7 +1,14 @@
 
 .label{
     display: flex;
+    flex-direction: column;
+    gap: 5px;
     height: 100%;
+
+    & > span{
+        color: red;
+        font-size: 11px;
+    }
 }
 
 .textarea{

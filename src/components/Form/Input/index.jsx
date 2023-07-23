@@ -6,6 +6,7 @@ const Input = ({
     className = '',
     label = '',
     register = {},
+    error = '',
     ...other
 }) => {
     return (
@@ -18,6 +19,7 @@ const Input = ({
                 {...register}
                 {...other}
             />
+            {error && <span>{error}</span>}
         </label>
     );
 }

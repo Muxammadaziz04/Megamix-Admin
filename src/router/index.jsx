@@ -5,6 +5,7 @@ import NewsAdd from "../views/AddNews"
 import AddProduct from "../views/AddProduct"
 import News from "../views/News"
 import { Products } from "../views/Products"
+import EditProduct from '../views/EditProduct'
 
 const Router = () => {
   const isAuth = useSelector((state) => state.auth)
@@ -20,7 +21,9 @@ const Router = () => {
       <Routes>
         <Route path="/" element={<MainLayout />}>
           <Route path="products" element={<Products />} />
-          <Route path="products/add" element={<AddProduct />} />
+          <Route path="products/:categoryId" element={<Products />} />
+          <Route path="products/:categoryId/add" element={<AddProduct />} />
+          <Route path="products/:categoryId/edit/:productId" element={<EditProduct />} />
           <Route path="press-reliz" element={<></>} />
           <Route path="press-reliz/news" element={<News />} />
           <Route path="press-reliz/news/add" element={<NewsAdd />} />
