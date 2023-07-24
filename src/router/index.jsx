@@ -6,6 +6,8 @@ import AddProduct from "../views/AddProduct"
 import News from "../views/News"
 import { Products } from "../views/Products"
 import EditProduct from '../views/EditProduct'
+import NewsEdit from '../views/EditNews'
+import HomePage from "../views/Home"
 
 const Router = () => {
   const isAuth = useSelector((state) => state.auth)
@@ -20,6 +22,7 @@ const Router = () => {
     return (
       <Routes>
         <Route path="/" element={<MainLayout />}>
+          <Route path="/" element={<HomePage />} />
           <Route path="products" element={<Products />} />
           <Route path="products/:categoryId" element={<Products />} />
           <Route path="products/:categoryId/add" element={<AddProduct />} />
@@ -27,6 +30,7 @@ const Router = () => {
           <Route path="press-reliz" element={<></>} />
           <Route path="press-reliz/news" element={<News />} />
           <Route path="press-reliz/news/add" element={<NewsAdd />} />
+          <Route path="press-reliz/news/edit/:newsId" element={<NewsEdit />} />
           <Route path="press-reliz/journal" element={<></>} />
           <Route path="press-reliz/vacancy" element={<></>} />
           <Route path="press-reliz/foto" element={<></>} />

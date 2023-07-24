@@ -11,6 +11,10 @@
     &__img, &__title{
         width: calc((100% - 10px) / 2);
 
+        &  label{
+            width: 100%;
+        }
+
         & > *{
             display: flex;
         }

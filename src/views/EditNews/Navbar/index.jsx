@@ -1,13 +1,14 @@
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import toast, { Toaster } from 'react-hot-toast'
 import BlackButton from '../../../components/Buttons/BlackButton';
 import { LeftArrowIcon } from '../../../components/icons';
-import cls from './Navbar.module.scss'
-import { createNews } from '../../../services/news';
+import { editNews } from '../../../services/news';
 import { useQueryClient } from 'react-query';
+import cls from './Navbar.module.scss'
 
 const Navbar = ({ useForm = {} }) => {
     const navigate = useNavigate()
+    const params = useParams()
     const queryClient = useQueryClient()
     const { handleSubmit } = useForm
 
@@ -24,7 +25,7 @@ const Navbar = ({ useForm = {} }) => {
 
         toast.promise(new Promise((res, rej) => {
             try {
-                createNews(fd)
+                editNews(params?.newsId, fd)
                     .then(() => {
                         queryClient.invalidateQueries(['news'])
                         setTimeout(() => navigate(-1), 1000)
@@ -35,8 +36,8 @@ const Navbar = ({ useForm = {} }) => {
                 rej(error)
             }
         }), {
-            loading: 'Идёт создание новости...',
-            success: 'Новость создан',
+            loading: 'Идёт изменение новости...',
+            success: 'Новость изменен',
             error: (data) => typeof data === 'string' ? data : 'Что-то пошло не так'
         })
     }
@@ -47,7 +48,7 @@ const Navbar = ({ useForm = {} }) => {
                 <Toaster />
                 <button onClick={() => navigate('/press-reliz/news')}><LeftArrowIcon /> Новости</button>
             </div>
-            <BlackButton onClick={handleSubmit(handleClick)}>Опубликовать</BlackButton>
+            <BlackButton onClick={handleSubmit(handleClick)}>Изменить</BlackButton>
         </div>
     );
 }
