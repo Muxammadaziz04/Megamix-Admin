@@ -48,6 +48,7 @@ const Body = ({ useForm = {} }) => {
                         onChange={(file) => { clearErrors('video'); setValue('video', file) }}
                         error={errors?.video?.message}
                         value={watchedFiles?.video}
+                        type='video'
                     >
                         Загрузить видео инструкцию
                     </FileUpload>

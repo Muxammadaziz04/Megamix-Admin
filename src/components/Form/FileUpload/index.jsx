@@ -9,6 +9,7 @@ const FileUpload = ({
     register = {},
     error = '',
     value = '',
+    type = 'image',
     ...other
 }) => {
     const [file, setFile] = useState()
@@ -36,7 +37,8 @@ const FileUpload = ({
         </div>
     ) : (
         <div className={cls.file}>
-            {typeof file === 'string' && <object data={file} />}
+            {typeof file === 'string' && type == 'image' && <img src={file} />}
+            {typeof file === 'string' && type == 'video' && <video src={file} />}
             {file.type?.split('/')?.[0] === 'image' && <img src={URL.createObjectURL(file)} />}
             {file.type?.split('/')?.[0] === 'video' && <video src={URL.createObjectURL(file)} />}
             <div className={cls.file__info}>
