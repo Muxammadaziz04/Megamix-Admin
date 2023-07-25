@@ -45,7 +45,9 @@ const Body = ({ useForm = {} }) => {
                     </FileUpload>
                     <FileUpload
                         accept='video/mp4'
-                        // onChange={(file) => setValue('video', file)}
+                        onChange={(file) => { clearErrors('video'); setValue('video', file) }}
+                        error={errors?.video?.message}
+                        value={watchedFiles?.video}
                     >
                         Загрузить видео инструкцию
                     </FileUpload>

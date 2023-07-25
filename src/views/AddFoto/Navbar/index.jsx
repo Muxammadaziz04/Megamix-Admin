@@ -46,7 +46,7 @@ const Navbar = ({ useForm = {} }) => {
     return (
         <div className={cls.navbar}>
             <div>
-                <button onClick={() => navigate(-1)}><LeftArrowIcon /> Продукты</button>
+                <button onClick={() => navigate(-1)}><LeftArrowIcon /> Фото галерея</button>
                 <Toaster />
             </div>
             <BlackButton onClick={handleSubmit(handleClick)}>Опубликовать</BlackButton>

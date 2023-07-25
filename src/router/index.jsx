@@ -8,6 +8,8 @@ import { Products } from "../views/Products"
 import EditProduct from '../views/EditProduct'
 import NewsEdit from '../views/EditNews'
 import HomePage from "../views/Home"
+import FotoGallery from "../views/FotoGallery"
+import AddFoto from "../views/AddFoto"
 
 const Router = () => {
   const isAuth = useSelector((state) => state.auth)
@@ -33,7 +35,8 @@ const Router = () => {
           <Route path="press-reliz/news/edit/:newsId" element={<NewsEdit />} />
           <Route path="press-reliz/journal" element={<></>} />
           <Route path="press-reliz/vacancy" element={<></>} />
-          <Route path="press-reliz/foto" element={<></>} />
+          <Route path="press-reliz/foto" element={<FotoGallery />} />
+          <Route path="press-reliz/foto/add" element={<AddFoto />} />
           <Route path="press-reliz/video" element={<></>} />
 
           <Route path="about-company" element={<></>} />

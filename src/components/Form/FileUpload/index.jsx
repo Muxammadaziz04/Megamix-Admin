@@ -36,11 +36,11 @@ const FileUpload = ({
         </div>
     ) : (
         <div className={cls.file}>
-            {typeof file === 'string' && <img src={file} />}
+            {typeof file === 'string' && <object data={file} />}
             {file.type?.split('/')?.[0] === 'image' && <img src={URL.createObjectURL(file)} />}
             {file.type?.split('/')?.[0] === 'video' && <video src={URL.createObjectURL(file)} />}
             <div className={cls.file__info}>
-                <span className={cls.file__info__name}>{file?.name || 'Фото'}</span>
+                <span className={cls.file__info__name}>{file?.name || 'Файл'}</span>
                 <span className={cls.file__info__edit} onClick={() => setFile(null)}>Изменить</span>
             </div>
         </div>
