@@ -3,12 +3,10 @@ import { useQueryClient } from "react-query";
 import { useNavigate, useParams } from 'react-router-dom';
 import BlackButton from '../../../components/Buttons/BlackButton';
 import { LeftArrowIcon } from '../../../components/icons';
-import { createFotoGallery } from "../../../services/gallery";
-import { createProduct } from '../../../services/product';
+import { createVideoGallery } from "../../../services/gallery";
 import cls from './Navbar.module.scss'
 
 const Navbar = ({ useForm = {} }) => {
-    const params = useParams()
     const navigate = useNavigate()
     const queryClient = useQueryClient()
     const { handleSubmit } = useForm
@@ -16,9 +14,9 @@ const Navbar = ({ useForm = {} }) => {
     const handleClick = (data) => {
         toast.promise(new Promise((res, rej) => {
             try {
-                createFotoGallery(data)
+                createVideoGallery(data)
                     .then(() => {
-                        queryClient.invalidateQueries(['fotos'])
+                        queryClient.invalidateQueries(['videos'])
                         setTimeout(() => navigate(-1), 1000)
                         res('')
                     })
@@ -36,7 +34,7 @@ const Navbar = ({ useForm = {} }) => {
     return (
         <div className={cls.navbar}>
             <div>
-                <button onClick={() => navigate(-1)}><LeftArrowIcon /> Фото галерея</button>
+                <button onClick={() => navigate(-1)}><LeftArrowIcon />Видео галерея</button>
                 <Toaster />
             </div>
             <BlackButton onClick={handleSubmit(handleClick)}>Опубликовать</BlackButton>

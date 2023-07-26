@@ -10,6 +10,10 @@ import NewsEdit from '../views/EditNews'
 import HomePage from "../views/Home"
 import FotoGallery from "../views/FotoGallery"
 import AddFoto from "../views/AddFoto"
+import EditFoto from "../views/EditFoto"
+import VideoGallery from "../views/VideoGallery"
+import AddVideo from "../views/AddVideo"
+import EditVideo from "../views/EditVideo"
 
 const Router = () => {
   const isAuth = useSelector((state) => state.auth)
@@ -37,7 +41,10 @@ const Router = () => {
           <Route path="press-reliz/vacancy" element={<></>} />
           <Route path="press-reliz/foto" element={<FotoGallery />} />
           <Route path="press-reliz/foto/add" element={<AddFoto />} />
-          <Route path="press-reliz/video" element={<></>} />
+          <Route path="press-reliz/foto/edit/:id" element={<EditFoto />} />
+          <Route path="press-reliz/video" element={<VideoGallery />} />
+          <Route path="press-reliz/video/add" element={<AddVideo />} />
+          <Route path="press-reliz/video/edit/:id" element={<EditVideo />} />
 
           <Route path="about-company" element={<></>} />
           <Route path="about-company/production" element={<></>} />

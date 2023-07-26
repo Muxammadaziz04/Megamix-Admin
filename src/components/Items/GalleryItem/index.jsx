@@ -3,6 +3,10 @@ import { DotsIcon } from '../../icons'
 import cls from './GalleryItem.module.scss'
 
 const GalleryItem = ({
+    image = '',
+    title = '',
+    count = '',
+    type = 'image',
     onDelete = () => {},
     onUpdate = () => {}
 }) => {
@@ -22,9 +26,10 @@ const GalleryItem = ({
 
     return (
         <div className={cls.item}>
-            <img className={cls.item__img} src="/images/empty-product.svg" />
-            <p className={cls.item__title}>MEGAMIX лауреат премии FAHRIY YORLIG'I «Лучшая продукция 2010 года»</p>
-            <span>45</span>
+            {type === 'image' && <img className={cls.item__img} src={image} />}
+            {type === 'video' && <video className={cls.item__img} src={image} />}
+            <p className={cls.item__title}>{title}</p>
+            <span>{count}</span>
             <div style={{ position: 'relative', marginLeft: 'auto' }} ref={modalRef}>
                 <button className={cls.item__btn} onClick={() => setIsOpenModal(state => !state)}>
                     <DotsIcon />

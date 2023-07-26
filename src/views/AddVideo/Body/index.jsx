@@ -20,7 +20,7 @@ const Body = ({ useForm = {} }) => {
             try {
                 uploadFile(fd)
                     .then((file) => {
-                        setValue('images', [file?.url, ...(watchedFiles?.images || [])]);
+                        setValue('video', file?.url);
                         res('')
                     })
                     .catch((error) => rej(error?.response?.data?.message))
@@ -28,8 +28,8 @@ const Body = ({ useForm = {} }) => {
                 rej(error)
             }
         }), {
-            loading: 'Загружаем изображение',
-            success: 'Изображение загружено',
+            loading: 'Загружаем видео',
+            success: 'Видео загружен',
             error: (data) => typeof data === 'string' ? data : 'Что-то пошло не так'
         })
     }
@@ -49,18 +49,24 @@ const Body = ({ useForm = {} }) => {
             <InputsWrapper title="Фото">
                 <div className={cls.body__fotoWrapper}>
                     {
+                        watchedFiles?.video ? (
+                            <video src={watchedFiles?.video} />
+                        ) : (
+                            <label className={cls.body__fotoWrapper__input}>
+                                Добавить видео
+                                <input
+                                    accept='video/mp4'
+                                    type="file"
+                                    onChange={handleChange}
+                                />
+                            </label>
+                        )
+                    }
+                    {
                         watchedFiles?.images?.length > 0 && watchedFiles?.images?.map((image, index) => (
                             <img src={image} key={index} />
                         ))
                     }
-                    <label className={cls.body__fotoWrapper__input}>
-                        Добавить фото
-                        <input
-                            accept='image/png, image/jpg, image/jpeg'
-                            type="file"
-                            onChange={handleChange}
-                        />
-                    </label>
                 </div>
             </InputsWrapper>
         </div>

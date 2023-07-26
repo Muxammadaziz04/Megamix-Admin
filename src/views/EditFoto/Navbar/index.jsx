@@ -3,8 +3,7 @@ import { useQueryClient } from "react-query";
 import { useNavigate, useParams } from 'react-router-dom';
 import BlackButton from '../../../components/Buttons/BlackButton';
 import { LeftArrowIcon } from '../../../components/icons';
-import { createFotoGallery } from "../../../services/gallery";
-import { createProduct } from '../../../services/product';
+import { updateFotoGallery } from "../../../services/gallery";
 import cls from './Navbar.module.scss'
 
 const Navbar = ({ useForm = {} }) => {
@@ -16,7 +15,7 @@ const Navbar = ({ useForm = {} }) => {
     const handleClick = (data) => {
         toast.promise(new Promise((res, rej) => {
             try {
-                createFotoGallery(data)
+                updateFotoGallery(params?.id, data)
                     .then(() => {
                         queryClient.invalidateQueries(['fotos'])
                         setTimeout(() => navigate(-1), 1000)
@@ -27,8 +26,8 @@ const Navbar = ({ useForm = {} }) => {
                 rej(error)
             }
         }), {
-            loading: 'Идёт создание галереи...',
-            success: 'Галерея создана',
+            loading: 'Идёт изменение галереи...',
+            success: 'Галерея изменена',
             error: (data) => typeof data === 'string' ? data : 'Что-то пошло не так'
         })
     }
@@ -39,7 +38,7 @@ const Navbar = ({ useForm = {} }) => {
                 <button onClick={() => navigate(-1)}><LeftArrowIcon /> Фото галерея</button>
                 <Toaster />
             </div>
-            <BlackButton onClick={handleSubmit(handleClick)}>Опубликовать</BlackButton>
+            <BlackButton onClick={handleSubmit(handleClick)}>Изменить</BlackButton>
         </div>
     );
 }

@@ -3,15 +3,15 @@ import { BodyWrapper } from "../../components/BodyWrapper";
 import Body from "./Body";
 import Navbar from "./Navbar";
 
-const AddFoto = () => {
+const AddVideo = () => {
     const form = useForm()
     
     return (
-        <BodyWrapper  
+        <BodyWrapper
             navbar={<Navbar useForm={form} />}
             body={<Body useForm={form} />}
         />
     );
 }
 
-export default AddFoto;
+export default AddVideo;
