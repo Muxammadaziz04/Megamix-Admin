@@ -1,0 +1,17 @@
+
+.body{
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+
+    &__block{
+        width: 100%; 
+        display: flex;
+        gap: 12px;
+
+        & > *{
+            max-width: calc((100% - 12px) / 2);
+            width: 100%;
+        }
+    }
+}

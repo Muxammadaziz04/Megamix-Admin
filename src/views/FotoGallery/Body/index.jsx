@@ -29,7 +29,6 @@ const Body = () => {
 
     return (
         <div className={cls.body}>
-
             <div className={cls.body__tabs}>
                 <span></span>
                 <span className={cls.body__tabs__name}>Альбом</span>

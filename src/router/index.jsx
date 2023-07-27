@@ -14,6 +14,8 @@ import EditFoto from "../views/EditFoto"
 import VideoGallery from "../views/VideoGallery"
 import AddVideo from "../views/AddVideo"
 import EditVideo from "../views/EditVideo"
+import Vacancies from "../views/Vacancies"
+import AddVacancy from "../views/AddVacancy"
 
 const Router = () => {
   const isAuth = useSelector((state) => state.auth)
@@ -38,7 +40,8 @@ const Router = () => {
           <Route path="press-reliz/news/add" element={<NewsAdd />} />
           <Route path="press-reliz/news/edit/:newsId" element={<NewsEdit />} />
           <Route path="press-reliz/journal" element={<></>} />
-          <Route path="press-reliz/vacancy" element={<></>} />
+          <Route path="press-reliz/vacancy" element={<Vacancies />} />
+          <Route path="press-reliz/vacancy/add" element={<AddVacancy />} />
           <Route path="press-reliz/foto" element={<FotoGallery />} />
           <Route path="press-reliz/foto/add" element={<AddFoto />} />
           <Route path="press-reliz/foto/edit/:id" element={<EditFoto />} />
