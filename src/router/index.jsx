@@ -16,14 +16,16 @@ import AddVideo from "../views/AddVideo"
 import EditVideo from "../views/EditVideo"
 import Vacancies from "../views/Vacancies"
 import AddVacancy from "../views/AddVacancy"
+import Journal from "../views/Journal"
+import Login from "../views/Login"
 
 const Router = () => {
-  const isAuth = useSelector((state) => state.auth)
+  const { isAuth } = useSelector((state) => state.auth)
 
   if (!isAuth) {
     return (
       <Routes>
-        <Route path="/" element={<></>} />
+        <Route path="*" element={<Login />} />
       </Routes>
     )
   } else {
@@ -39,7 +41,7 @@ const Router = () => {
           <Route path="press-reliz/news" element={<News />} />
           <Route path="press-reliz/news/add" element={<NewsAdd />} />
           <Route path="press-reliz/news/edit/:newsId" element={<NewsEdit />} />
-          <Route path="press-reliz/journal" element={<></>} />
+          <Route path="press-reliz/journal" element={<Journal />} />
           <Route path="press-reliz/vacancy" element={<Vacancies />} />
           <Route path="press-reliz/vacancy/add" element={<AddVacancy />} />
           <Route path="press-reliz/foto" element={<FotoGallery />} />
