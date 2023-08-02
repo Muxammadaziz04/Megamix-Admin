@@ -1,4 +1,4 @@
-import { HomeIcon, PressIcon, ProductsIcon } from "../components/icons.jsx";
+import { AboutCompanyIcon, GiftIcon, HomeIcon, PressIcon, PressRelizIcon, ProductsIcon, SliderIcon } from "../components/icons.jsx";
 
 export const routes = (productChilds) => (
     [
@@ -18,7 +18,7 @@ export const routes = (productChilds) => (
         {
             id: 3, 
             link: '/press-reliz',
-            icon: PressIcon,
+            icon: PressRelizIcon,
             label: 'Пресс-релиз',
             children: [
                 {
@@ -48,33 +48,45 @@ export const routes = (productChilds) => (
                 },
             ]
         },
+        // {
+        //     id: 4, 
+        //     link: '/about-company',
+        //     icon: AboutCompanyIcon,
+        //     label: 'О компании',
+        //     children: [
+        //         {
+        //             id: 1,
+        //             link: '/about-company/description',
+        //             label: 'О компании'
+        //         },
+        //         {
+        //             id: 2,
+        //             link: '/about-company/production',
+        //             label: 'Производство'
+        //         },
+        //         {
+        //             id: 3,
+        //             link: '/about-company/sertificates',
+        //             label: 'Сертификат'
+        //         },
+        //         {
+        //             id: 4,
+        //             link: '/about-company/honors',
+        //             label: 'Награды'
+        //         },
+        //     ]
+        // },
         {
-            id: 4, 
-            link: '/about-company',
-            icon: PressIcon,
-            label: 'О компании',
-            children: [
-                {
-                    id: 1,
-                    link: '/about-company/description',
-                    label: 'О компании'
-                },
-                {
-                    id: 2,
-                    link: '/about-company/production',
-                    label: 'Производство'
-                },
-                {
-                    id: 3,
-                    link: '/about-company/sertificates',
-                    label: 'Сертификат'
-                },
-                {
-                    id: 4,
-                    link: '/about-company/honors',
-                    label: 'Награды'
-                },
-            ]
+            id: 5, 
+            link: '/club',
+            icon: GiftIcon,
+            label: 'Клуб мастеров'
+        },
+        {
+            id: 6, 
+            link: '/slider',
+            icon: SliderIcon,
+            label: 'Слайд баннер'
         },
     ]
 )

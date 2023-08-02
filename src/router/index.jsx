@@ -18,6 +18,9 @@ import Vacancies from "../views/Vacancies"
 import AddVacancy from "../views/AddVacancy"
 import Journal from "../views/Journal"
 import Login from "../views/Login"
+import Club from "../views/Club"
+import ClubAdd from "../views/AddClub"
+import Slider from "../views/Slider"
 
 const Router = () => {
   const { isAuth } = useSelector((state) => state.auth)
@@ -50,12 +53,15 @@ const Router = () => {
           <Route path="press-reliz/video" element={<VideoGallery />} />
           <Route path="press-reliz/video/add" element={<AddVideo />} />
           <Route path="press-reliz/video/edit/:id" element={<EditVideo />} />
+          <Route path="club" element={<Club />} />
+          <Route path="club/add" element={<ClubAdd />} />
+          <Route path="/slider" element={<Slider />} />
 
-          <Route path="about-company" element={<></>} />
+          {/* <Route path="about-company" element={<></>} />
           <Route path="about-company/production" element={<></>} />
           <Route path="about-company/description" element={<></>} />
           <Route path="about-company/sertificates" element={<></>} />
-          <Route path="about-company/honors" element={<></>} />
+          <Route path="about-company/honors" element={<></>} /> */}
         </Route>
       </Routes>
     )

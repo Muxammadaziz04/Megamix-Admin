@@ -1,0 +1,28 @@
+
+.body{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+
+    &__lang, &__desc{
+        width: 100%;
+    }
+
+    &__img, &__title{
+        width: calc((100% - 10px) / 2);
+
+        &  label{
+            width: 100%;
+        }
+
+        & > *{
+            display: flex;
+        }
+    }
+
+    &__desc{
+        &  textarea{
+            min-height: 140px;
+        }
+    }
+}
