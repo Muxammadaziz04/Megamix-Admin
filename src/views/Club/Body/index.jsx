@@ -5,6 +5,7 @@ import { getClub, deleteClub } from '../../../services/club'
 import NewsItem from '../../../components/Items/NewsItem'
 import cls from './Body.module.scss'
 import Loader from '../../../components/Loader'
+import { Skeleton } from 'antd'
 
 const Body = () => {
     const navigate = useNavigate()
@@ -37,7 +38,7 @@ console.log(news);
                 {
                     isLoading ? (
                         Array(10).fill(null).map((_, index) => (
-                            <Loader key={index} />
+                            <Skeleton.Node key={index} active style={{ width: '100%', height: '52px' }}></Skeleton.Node>
                         ))
                     ) : (
                         news?.length > 0 && news?.map(news => (

@@ -20,7 +20,7 @@ const Navbar = ({ useForm = {} }) => {
             if(['ru', 'en', 'uz', 'tr', 'tj'].includes(key)) {
                 fd.append(key, JSON.stringify(data[key]))
             } else {
-                fd.append(key, data[key] || null)
+                fd.append(key, data[key] || '')
             }
         }
 
