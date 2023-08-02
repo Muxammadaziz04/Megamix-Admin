@@ -1,5 +1,6 @@
 import toast, { Toaster } from "react-hot-toast";
 import Input from "../../../components/Form/Input";
+import { CloseIcon } from "../../../components/icons";
 import InputsWrapper from "../../../components/InputsWrapper";
 import LanguagesTab from "../../../components/LanguagesTab";
 import useSearchParams from "../../../hooks/useSearchParams";
@@ -34,6 +35,10 @@ const Body = ({ useForm = {} }) => {
         })
     }
 
+    const deleteImage = (i) => {
+        setValue('images', watchedFiles?.images?.filter((__dirname, index) => index !== i))
+    }
+
     return (
         <div className={cls.body}>
             <LanguagesTab />
@@ -50,7 +55,10 @@ const Body = ({ useForm = {} }) => {
                 <div className={cls.body__fotoWrapper}>
                     {
                         watchedFiles?.images?.length > 0 && watchedFiles?.images?.map((image, index) => (
-                            <img src={image} key={index} />
+                            <div>
+                                <img src={image} key={index} />
+                                <button onClick={() => deleteImage(index)}><CloseIcon /></button>
+                            </div>
                         ))
                     }
                     <label className={cls.body__fotoWrapper__input}>
