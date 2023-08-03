@@ -80,6 +80,13 @@
                 max-width: 100%;
             }
         }
+
+        & > label:nth-child(2){
+            height: 200px;
+            & > textarea{
+                height: 100%;
+            }
+        }
     }
 }
 

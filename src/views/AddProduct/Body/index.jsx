@@ -108,7 +108,7 @@ const Body = ({ useForm = {} }) => {
                                     placeholder='КГ'
                                     register={{ ...register(`weight`) }}
                                 />
-                                <Input
+                                {/* <Input
                                     label='Прочность на сжатие:'
                                     placeholder='МПа'
                                     register={{ ...register(`compressiveStrength`) }}
@@ -122,8 +122,8 @@ const Body = ({ useForm = {} }) => {
                                     label='Температура рабочей среды:'
                                     placeholder='+5°С/+35°С.'
                                     register={{ ...register(`workingMediumTemperature`) }}
-                                />
-                                <Input
+                                /> */}
+                                <TextArea
                                     value={watchedFiles?.[params.get('lang')]?.technicalSpecifications || ''}
                                     label='Показания:'
                                     placeholder='Технические характеристики'
