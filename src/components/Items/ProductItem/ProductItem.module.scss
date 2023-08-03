@@ -40,6 +40,8 @@
     }
 
     &__video {
+        max-width: 53px;
+        width: 100%;
         display: flex;
         align-items: center;
         gap: 3px;
