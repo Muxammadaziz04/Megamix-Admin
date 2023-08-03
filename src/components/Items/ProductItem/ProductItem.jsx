@@ -38,7 +38,7 @@ const ProductItem = ({
             <p className={cls.item__shortdesc}>{shortDescription}</p>
             <p className={cls.item__desc}>{description}</p>
             <span className={cls.item__video}>{video && <><PlayIcon /> Видео</>}</span>
-            <span className={cls.item__date}>{weight && <>{weight} kg</>}</span>
+            <span className={cls.item__date}>{weight && <>{weight}</>}</span>
             <div style={{ position: 'relative', marginLeft: 'auto' }} ref={modalRef}>
                 <button className={cls.item__btn} onClick={() => setIsOpenModal(state => !state)}>
                     <DotsIcon />
