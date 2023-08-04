@@ -17,7 +17,7 @@ const Body = ({ useForm }) => {
                 <InputsWrapper title="Вакансия">
                     <TextArea
                         placeholder='Описание'
-                        value={watchedFiles?.[params.get('lang')]}
+                        value={watchedFiles?.[params.get('lang')] || ''}
                         register={{ ...register((params.get('lang') || 'null'), { required: { value: true, message: 'Добавьте описание' } }) }}
                     />
                 </InputsWrapper>

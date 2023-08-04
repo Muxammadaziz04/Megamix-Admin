@@ -31,6 +31,14 @@ const Body = ({ useForm = {} }) => {
                     Загрузить фото
                 </FileUpload>
             </InputsWrapper>
+            <InputsWrapper className={cls.body__desc} title='Краткое описание'>
+                <Input
+                    placeholder='Краткое описание'
+                    value={watchedFiles?.[params.get('lang')]?.shortDescription || ''}
+                    register={{ ...register(`${params.get('lang')}.shortDescription`, { required: { value: true, message: 'Заполните описание' } }) }}
+                    error={errors?.[params.get('lang')]?.shortDescription?.message}
+                />
+            </InputsWrapper>
             <InputsWrapper className={cls.body__desc} title='Описание'>
                 <TextArea
                     placeholder='Описание'

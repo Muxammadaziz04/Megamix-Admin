@@ -26,11 +26,11 @@ export const routes = (productChilds) => (
                     link: '/press-reliz/news',
                     label: 'Новости'
                 },
-                {
-                    id: 2,
-                    link: '/press-reliz/journal',
-                    label: 'Журнал'
-                },
+                // {
+                //     id: 2,
+                //     link: '/press-reliz/journal',
+                //     label: 'Журнал'
+                // },
                 {
                     id: 3,
                     link: '/press-reliz/vacancy',
