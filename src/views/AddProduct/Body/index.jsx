@@ -165,7 +165,9 @@ const Body = ({ useForm = {} }) => {
                         register={{ ...register(`calcWeight`) }}
                     />
                     {
-                        routeParams.categoryId === '45eeeec8-7ec5-4463-939d-e2a94dd30c1c' && (
+                        (routeParams.categoryId === '45eeeec8-7ec5-4463-939d-e2a94dd30c1c'
+                        || routeParams.categoryId === '6127e6b4-e60f-4c96-b442-f27b9bfa4a92')
+                        && (
                             <Input
                                 type='number'
                                 label='Литр'
