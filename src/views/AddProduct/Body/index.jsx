@@ -1,4 +1,5 @@
 import { useEffect } from 'react';
+import { useParams } from 'react-router-dom';
 import GreyButton from '../../../components/Buttons/GreyButton';
 import FileUpload from '../../../components/Form/FileUpload';
 import Input from '../../../components/Form/Input';
@@ -11,6 +12,7 @@ import cls from './Body.module.scss'
 const Body = ({ useForm = {} }) => {
     const { register, clearErrors, watch, setValue, formState: { errors } } = useForm
     const [params, setSearchParams] = useSearchParams()
+    const routeParams = useParams()
     const watchedFiles = watch()
 
     useEffect(() => {
@@ -162,12 +164,16 @@ const Body = ({ useForm = {} }) => {
                         placeholder='кг'
                         register={{ ...register(`calcWeight`) }}
                     />
-                    <Input
-                        type='number'
-                        label='Литр'
-                        placeholder='Лирт'
-                        register={{ ...register(`calcWaterQuantity`) }}
-                    />
+                    {
+                        routeParams.categoryId === '45eeeec8-7ec5-4463-939d-e2a94dd30c1c' && (
+                            <Input
+                                type='number'
+                                label='Литр'
+                                placeholder='Лирт'
+                                register={{ ...register(`calcWaterQuantity`) }}
+                            />
+                        )
+                    }
                 </div>
             </InputsWrapper>
         </div>
